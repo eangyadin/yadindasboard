@@ -1,378 +1,7 @@
-<!DOCTYPE html>
-<html lang="km">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ប្រព័ន្ធតាមដាន និងគ្រប់គ្រងទិន្នន័យនាយកសាលា បានរៀនវគ្គ៤ក្រេឌីត</title>
-    <!-- Bootstrap 5.3 & FontAwesome & Chart.js & Kantumruy Pro -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            --success-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            --warning-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Kantumruy Pro', sans-serif;
-            background-color: var(--bg-body);
-            color: #1e293b;
-        }
-        .dashboard-header {
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.25);
-        }
-        .dashboard-header h2 { font-size: 1.5rem; }
-        @media (min-width: 768px) {
-            .dashboard-header { padding: 25px; }
-            .dashboard-header h2 { font-size: 2rem; }
-        }
-        .card {
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            background: var(--card-bg);
-        }
-        .stat-box {
-            border-radius: 14px;
-            color: white;
-            padding: 18px;
-            position: relative;
-            overflow: hidden;
-        }
-        .stat-box.total { background: var(--primary-gradient); }
-        .stat-box.certified { background: var(--success-gradient); }
-        .stat-box.pending { background: var(--warning-gradient); }
-        .stat-box i {
-            position: absolute;
-            right: -10px;
-            bottom: -10px;
-            font-size: 4rem;
-            opacity: 0.15;
-        }
-        .form-control, .form-select {
-            border-radius: 10px;
-            padding: 10px 14px;
-            border: 1px solid #cbd5e1;
-            background-color: #f8fafc;
-            font-size: 14px;
-        }
-        .form-control:focus, .form-select:focus {
-            background-color: #fff;
-            border-color: #4f46e5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
-        }
-        .btn-submit {
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 10px;
-            padding: 12px;
-            font-weight: 600;
-            border: none;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
-            transition: all 0.2s;
-        }
-        .btn-submit:hover { opacity: 0.95; transform: translateY(-1px); color: white; }
-        
-        .table-container {
-            border-radius: 14px;
-            overflow-x: auto;
-            border: 1px solid #e2e8f0;
-        }
-        .table-modern thead th {
-            background-color: #f1f5f9;
-            color: #334155;
-            font-weight: 700;
-            text-align: center;
-            vertical-align: middle;
-            padding: 14px 10px;
-            border-bottom: 2px solid #e2e8f0;
-            white-space: nowrap;
-            font-size: 13.5px;
-        }
-        .table-modern tbody td {
-            vertical-align: middle;
-            padding: 12px 10px;
-            color: #334155;
-            font-size: 13.5px;
-            border-bottom: 1px solid #f1f5f9;
-            white-space: nowrap;
-        }
-        .badge-status-yes {
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 12.5px;
-        }
-        .badge-status-no {
-            background-color: #fee2e2;
-            color: #991b1b;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 12.5px;
-        }
-        .school-info-box {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-<body class="py-3 py-md-4">
-    <div class="container-fluid px-2 px-md-4">
-        <!-- Header -->
-        <div class="dashboard-header text-center mb-4">
-            <h2 class="fw-bold mb-1"><i class="fa-solid fa-graduation-cap me-2"></i>ប្រព័ន្ធតាមដាន និងគ្រប់គ្រងទិន្នន័យនាយកសាលា បានរៀនវគ្គ៤ក្រេឌីត</h2>
-            <p class="mb-0 text-white-50 small">បញ្ជីឈ្មោះនាយក រៀនវគ្គ៤ក្រេឌីតសម្រាប់ខេត្តព្រៃវែង</p>
-        </div>
+<script>
+        // ដាក់ Link Web App របស់ Google Apps Script ទីនេះ
+        const WEB_APP_URL = "YOUR_WEB_APP_URL"; 
 
-        <!-- Dashboard Analytics Cards -->
-        <div class="row mb-4">
-            <div class="col-md-4 mb-3">
-                <div class="stat-box total shadow-sm">
-                    <span class="small fw-bold text-uppercase opacity-75">សរុបចំនួនគ្រូ</span>
-                    <h2 id="stat-total" class="fw-bold mt-2 mb-0 display-6">0</h2>
-                    <i class="fa-solid fa-users"></i>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="stat-box certified shadow-sm">
-                    <span class="small fw-bold text-uppercase opacity-75">មានវិញ្ញាបនបត្រ ៤ក្រេឌីត</span>
-                    <h2 id="stat-certified" class="fw-bold mt-2 mb-0 display-6">0</h2>
-                    <i class="fa-solid fa-award"></i>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="stat-box pending shadow-sm">
-                    <span class="small fw-bold text-uppercase opacity-75">ផ្សេងៗ / កំពុងរៀបចំ</span>
-                    <h2 id="stat-pending" class="fw-bold mt-2 mb-0 display-6">0</h2>
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- Chart Section -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="card p-3 p-md-4 shadow-sm">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h6 class="fw-bold text-secondary mb-0 fs-6 fs-md-5">
-                            <i class="fa-solid fa-chart-column text-primary me-2"></i>ក្រាបសរុបចំនួនអ្នកបានរៀន ៤ក្រេឌីត តាមស្រុក (ចុចលើរបារស្រុកដើម្បីមើលសាលា)
-                        </h6>
-                    </div>
-                    <div style="position: relative; height: 260px; width: 100%;">
-                        <canvas id="districtChart"></canvas>
-                    </div>
-                    <div id="schoolDetailContainer" style="display: none;" class="school-info-box">
-                        <h6 class="fw-bold text-success mb-2" id="selectedDistrictTitle"><i class="fa-solid fa-school me-2"></i>សាលារៀនក្នុងស្រុក៖</h6>
-                        <ul id="schoolList" class="mb-0 ps-3"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Workspace Section -->
-        <div class="row">
-            <!-- Left Form Input -->
-            <div class="col-lg-4 mb-4">
-                <div class="card p-3 p-md-4 shadow-sm">
-                    <h5 class="fw-bold mb-3" style="color: #4f46e5;">
-                        <i class="fa-solid fa-user-plus me-2"></i>បំពេញទិន្នន័យថ្មី
-                    </h5>
-                    <form id="dataForm">
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">នាម-គោត្តនាម</label>
-                            <input type="text" class="form-control" name="name" required placeholder="ឧ. សុខ សុភា...">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">ភេទ</label>
-                            <select class="form-select" name="gender" id="genderSelect" onchange="updateRole()">
-                                <option value="ប្រុស">ប្រុស</option>
-                                <option value="ស្រី">ស្រី</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">ថ្ងៃខែឆ្នាំកំណើត</label>
-                            <input type="date" class="form-control" name="dob">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">តួនាទី (កំណត់ដោយស្វ័យប្រវត្តិ)</label>
-                            <input type="text" class="form-control bg-light" name="role" id="roleInput" value="នាយកសាលា" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">ឈ្មោះសាលា</label>
-                            <select class="form-select" name="school" id="schoolSelect" required>
-                                <option value="" disabled selected>-- ជ្រើសរើសឈ្មោះសាលា --</option>
-                                <option value="សាលាបឋមសិក្សាពោធិ៍ស្រែ">សាលាបឋមសិក្សាពោធិ៍ស្រែ</option>
-                                <option value="សាលាបឋមសិក្សាកញ្ជ្រៀច">សាលាបឋមសិក្សាកញ្ជ្រៀច</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃស្វាយ">សាលាបឋមសិក្សាព្រៃស្វាយ</option>
-                                <option value="សាលាបឋមសិក្សាកណ្តាច់">សាលាបឋមសិក្សាកណ្តាច់</option>
-                                <option value="សាលាបឋមសិក្សា ចុងអំពិល">សាលាបឋមសិក្សា ចុងអំពិល</option>
-                                <option value="សាលាបឋមសិក្សាមុនីរតន៍">សាលាបឋមសិក្សាមុនីរតន៍</option>
-                                <option value="សាលាបឋមសិក្សាញឹម វណ្ណដា សង្កែរ">សាលាបឋមសិក្សាញឹម វណ្ណដា សង្កែរ</option>
-                                <option value="សាលាបឋមសិក្សា ស ខេង">សាលាបឋមសិក្សា ស ខេង</option>
-                                <option value="សាលាបឋមសិក្សាជាច">សាលាបឋមសិក្សាជាច</option>
-                                <option value="សាលាបឋមសិក្សា ពោន">សាលាបឋមសិក្សា ពោន</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃវៀរ">សាលាបឋមសិក្សាព្រៃវៀរ</option>
-                                <option value="សាលាបឋមសិក្សាជ្រៃ">សាលាបឋមសិក្សាជ្រៃ</option>
-                                <option value="សាលាបឋមសិក្សាសំរោង">សាលាបឋមសិក្សាសំរោង</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃពោន">សាលាបឋមសិក្សាព្រៃពោន</option>
-                                <option value="សាលាបឋមសិក្សាបេងបូរី">សាលាបឋមសិក្សាបេងបូរី</option>
-                                <option value="សាលាបឋមសិក្សាចាន់រ៉ា">សាលាបឋមសិក្សាចាន់រ៉ា</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃប្រង់">សាលាបឋមសិក្សាព្រៃប្រង់</option>
-                                <option value="សាលាបឋមសិក្សាគោកសណ្តែក">សាលាបឋមសិក្សាគោកសណ្តែក</option>
-                                <option value="សាលាបឋមសិក្សាព្រះរាជមានជ័យ">សាលាបឋមសិក្សាព្រះរាជមានជ័យ</option>
-                                <option value="សាលាបឋមសិក្សាពាមជរ">សាលាបឋមសិក្សាពាមជរ</option>
-                                <option value="សាលាបឋមសិក្សាកោះរកា">សាលាបឋមសិក្សាកោះរកា</option>
-                                <option value="សាលាបឋមសិក្សាស្វាយជ្រុំ">សាលាបឋមសិក្សាស្វាយជ្រុំ</option>
-                                <option value="សាលាបឋមសិក្សាជ្រៃថ្មី">សាលាបឋមសិក្សាជ្រៃថ្មី</option>
-                                <option value="សាលាបឋមសិក្សាព្រែកក្របៅ ១">សាលាបឋមសិក្សាព្រែកក្របៅ ១</option>
-                                <option value="សាលាបឋមសិក្សាព្រែកក្របៅ 2">សាលាបឋមសិក្សាព្រែកក្របៅ 2</option>
-                                <option value="សាលាបឋមសិក្សាសង្រ្គោះកុមារ">សាលាបឋមសិក្សាសង្រ្គោះកុមារ</option>
-                                <option value="សាលាបឋមសិក្សាព្រែកធំ">សាលាបឋមសិក្សាព្រែកធំ</option>
-                                <option value="សាលាបឋមសិក្សាហ៊ុនសែនអ្នកលឿង">សាលាបឋមសិក្សាហ៊ុនសែនអ្នកលឿង</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃកណ្តៀង">សាលាបឋមសិក្សាព្រៃកណ្តៀង</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃអង្គុញ">សាលាបឋមសិក្សាព្រៃអង្គុញ</option>
-                                <option value="សាលាបឋមសិក្សាភូមិចាន់">សាលាបឋមសិក្សាភូមិចាន់</option>
-                                <option value="សាលាបឋមសិក្សាសម្តេចតេជោ ហ៊ុន សែន ស្នាយពល">សាលាបឋមសិក្សាសម្តេចតេជោ ហ៊ុន សែន ស្នាយពល</option>
-                                <option value="សាលាបឋមសិក្សាឫស្សីជុកជើង">សាលាបឋមសិក្សាឫស្សីជុកជើង</option>
-                                <option value="សាលាបឋមសិក្សាត្នោត">សាលាបឋមសិក្សាត្នោត</option>
-                                <option value="សាលាបឋមសិក្សាវៃវេទ">សាលាបឋមសិក្សាវៃវេទ</option>
-                                <option value="សាលាបឋមសិក្សា ពាមអំពិល">សាលាបឋមសិក្សា ពាមអំពិល</option>
-                                <option value="សាលាបឋមសិក្សា អង្គាសដី">សាលាបឋមសិក្សា អង្គាសដី</option>
-                                <option value="សាលាបឋមសិក្សាព្រហ្ម">សាលាបឋមសិក្សាព្រហ្ម</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃស្លា">សាលាបឋមសិក្សាព្រៃស្លា</option>
-                                <option value="សាលាបឋមសិក្សាអនុ្លង់ទ្រា">សាលាបឋមសិក្សាអនុ្លង់ទ្រា</option>
-                                <option value="សាលាបឋមសិក្សាបាក់ដោក">សាលាបឋមសិក្សាបាក់ដោក</option>
-                                <option value="សាលាបឋមសិក្សាហ៊ុនសែនយាយសល់">សាលាបឋមសិក្សាហ៊ុនសែនយាយសល់</option>
-                                <option value="សាលាបឋមសិក្សាពោធិ៍រៀង">សាលាបឋមសិក្សាពោធិ៍រៀង</option>
-                                <option value="សាលាបឋមសិក្សាសម្តេចតេជោហ៊ុន សែន បុញ្ញខេត្តារាម">សាលាបឋមសិក្សាសម្តេចតេជោហ៊ុន សែន បុញ្ញខេត្តារាម</option>
-                                <option value="សាលាបឋមសិក្សាព្រុំ សុនក្តីកណ្តាល">សាលាបឋមសិក្សាព្រុំ សុនក្តីកណ្តាល</option>
-                                <option value="សាលាបឋមសិក្សាអនុវត្តហ៊ុនសែនព្រៃវែង">សាលាបឋមសិក្សាអនុវត្តហ៊ុនសែនព្រៃវែង</option>
-                                <option value="សាលាបឋមសិក្សាសម្តេចតេជោហ៊ុន សែន ព្រៃវែងក្រុង">សាលាបឋមសិក្សាសម្តេចតេជោហ៊ុន សែន ព្រៃវែងក្រុង</option>
-                                <option value="សាលាបឋមសិក្សាព្រៃទ័ព">សាលាបឋមសិក្សាព្រៃទ័ព</option>
-                                <option value="សាលាបឋមសិក្សាទួលជ័យ">សាលាបឋមសិក្សាទួលជ័យ</option>
-                                <option value="សាលាបឋមសិក្សាទួលជ្រៃ">សាលាបឋមសិក្សាទួលជ្រៃ</option>
-                                <option value="សាលាបឋមសិក្សាត្រពាំងជ្រែ">សាលាបឋមសិក្សាត្រពាំងជ្រែ</option>
-                                <option value="សាលាបឋមសិក្សាអង្គរឃ្លោកចាស់">សាលាបឋមសិក្សាអង្គរឃ្លោកចាស់</option>
-                                <option value="សាលាបឋមសិក្សាពោធិសាលា">សាលាបឋមសិក្សាពោធិសាលា</option>
-                                <option value="សាលាបឋមសិក្សាជ្រៃឃ្មុំ">សាលាបឋមសិក្សាជ្រៃឃ្មុំ</option>
-                                <option value="សាលាបឋមសិក្សាហ៊ុនសែនឡាំឡូង">សាលាបឋមសិក្សាហ៊ុនសែនឡាំឡូង</option>
-                                <option value="សាលាបឋមសិក្សាបាប្រីយ៍">សាលាបឋមសិក្សាបាប្រីយ៍</option>
-                                <option value="សាលាបឋមសិក្សាព្រែកសណ្ដែក">សាលាបឋមសិក្សាព្រែកសណ្ដែក</option>
-                                <option value="សាលាបឋមសិក្សាស្វាយអន្ទរ">សាលាបឋមសិក្សាស្វាយអន្ទរ</option>
-                                <option value="សាលាបឋមសិក្សាថ្លាវយូមេ">សាលាបឋមសិក្សាថ្លាវយូមេ</option>
-                                <option value="សាលាបឋមសិក្សារកា">សាលាបឋមសិក្សារកា</option>
-                                <option value="សាលាបឋមសិក្សាសិរីឧត្តម">សាលាបឋមសិក្សាសិរីឧត្តម</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">ស្រុក</label>
-                            <select class="form-select" name="district" id="districtSelect" required>
-                                <option value="" disabled selected>-- ជ្រើសរើសស្រុក --</option>
-                                <option value="ស្រុកកញ្ជ្រៀច">ស្រុកកញ្ជ្រៀច</option>
-                                <option value="ស្រុកកំចាយមារ">ស្រុកកំចាយមារ</option>
-                                <option value="ស្រុកមេសាង">ស្រុកមេសាង</option>
-                                <option value="ស្រុកបាភ្នំ">ស្រុកបាភ្នំ</option>
-                                <option value="ស្រុកពាមរក៍">ស្រុកពាមរក៍</option>
-                                <option value="ស្រុកកំពង់ត្របែក">ស្រុកកំពង់ត្របែក</option>
-                                <option value="ស្រុកពោធិ៍រៀង">ស្រុកពោធិ៍រៀង</option>
-                                <option value="ស្រុកស៊ីធរកណ្តាល">ស្រុកស៊ីធរកណ្តាល</option>
-                                <option value="ស្រុកស្វាយអន្ទរ">ស្រុកស្វាយអន្ទរ</option>
-                                <option value="ស្រុកពារាំង">ស្រុកពារាំង</option>
-                                <option value="ស្រុកពាមជរ">ស្រុកពាមជរ</option>
-                                <option value="ក្រុងព្រៃវែង">ក្រុងព្រៃវែង</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 form-check bg-light p-3 rounded border">
-                            <input type="checkbox" class="form-check-input ms-1" name="cert" value="true" id="certCheck">
-                            <label class="form-check-label fw-semibold ms-2" for="certCheck">មានវិញ្ញាបនបត្រ ៤ក្រេឌីត</label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">ដាក់ពាក្យ</label>
-                            <select class="form-select" name="applied" id="appliedSelect">
-                                <option value="ដាក់ពាក្យនៅមន្ទីរ">ដាក់ពាក្យនៅមន្ទីរ</option>
-                                <option value="ដាក់ពាក្យតាម Online">ដាក់ពាក្យតាម Online</option>
-                                <option value="មិនរៀន">មិនរៀន</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">លេខទូរស័ព្ទ</label>
-                            <input type="text" class="form-control" name="phone" placeholder="012345678...">
-                        </div>
-                        <button type="submit" class="btn btn-submit w-100 mt-2" id="submitBtn">
-                            <i class="fa-solid fa-floppy-disk me-2"></i>រក្សាទុកទិន្នន័យ
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Right Table Display -->
-            <div class="col-lg-8">
-                <div class="card p-3 p-md-4 shadow-sm">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="fw-bold text-secondary mb-0 fs-6 fs-md-5">
-                            <i class="fa-solid fa-table-list me-2"></i>បញ្ជីទិន្នន័យក្នុងប្រព័ន្ធ
-                        </h5>
-                        <button class="btn btn-sm btn-outline-primary px-3 rounded-pill" onclick="loadData()">
-                            <i class="fa-solid fa-rotate me-1"></i>ផ្ទុកឡើងវិញ
-                        </button>
-                    </div>
-                    <div class="table-responsive table-container">
-                        <table class="table table-modern align-middle">
-                            <thead>
-                                <tr>
-                                    <th style="width: 50px;">ល.រ</th>
-                                    <th>នាម-គោត្តនាម</th>
-                                    <th style="width: 70px;">ភេទ</th>
-                                    <th>ថ្ងៃកំណើត</th>
-                                    <th>តួនាទី</th>
-                                    <th>ឈ្មោះសាលា</th>
-                                    <th>ស្រុក</th>
-                                    <th>វិញ្ញាបនបត្រ៤ក្រេឌីត</th>
-                                    <th>ដាក់ពាក្យ</th>
-                                    <th>លេខទូរស័ព្ទ</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableData">
-                                <tr><td colspan="10" class="text-center py-5 text-muted">កំពុងទាញទិន្នន័យ...</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body" id="toastMessage">
-                    បានរក្សាទុកទិន្នន័យដោយជោគជ័យ!
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JavaScript -->
-    <script>
         let myChart = null;
         let globalDistrictData = {};
 
@@ -384,11 +13,7 @@
         function updateRole() {
             let gender = document.getElementById('genderSelect').value;
             let roleInput = document.getElementById('roleInput');
-            if (gender === 'ស្រី') {
-                roleInput.value = 'នាយិកាសាលា';
-            } else {
-                roleInput.value = 'នាយកសាលា';
-            }
+            roleInput.value = (gender === 'ស្រី') ? 'នាយិកាសាលា' : 'នាយកសាលា';
         }
 
         function showToast(message, isError = false) {
@@ -403,8 +28,9 @@
         function loadData() {
             document.getElementById('tableData').innerHTML = `<tr><td colspan="10" class="text-center py-5 text-muted"><i class="fa-solid fa-spinner fa-spin me-2"></i>កំពុងទាញទិន្នន័យ...</td></tr>`;
 
-            google.script.run
-                .withSuccessHandler(function(res) {
+            fetch(WEB_APP_URL + "?action=getData")
+                .then(response => response.json())
+                .then(res => {
                     if (!res || res.status === "error") {
                         showToast("កំហុសទាញទិន្នន័យ៖ " + (res ? res.message : "មិនមានការឆ្លើយតប"), true);
                         return;
@@ -458,10 +84,9 @@
                         tbody.appendChild(tr);
                     });
                 })
-                .withFailureHandler(function(err) {
+                .catch(err => {
                     showToast("កំហុស Server៖ " + err.message, true);
-                })
-                .getData();
+                });
         }
 
         function renderChart(districtSummary) {
@@ -470,10 +95,7 @@
 
             let canvas = document.getElementById('districtChart');
             let ctx = canvas.getContext('2d');
-            
-            if (myChart) {
-                myChart.destroy();
-            }
+            if (myChart) myChart.destroy();
 
             let gradient = ctx.createLinearGradient(0, 0, 0, 300);
             gradient.addColorStop(0, '#6366f1');
@@ -500,31 +122,14 @@
                     maintainAspectRatio: false,
                     onClick: function(evt, elements) {
                         if (elements.length > 0) {
-                            let index = elements[0].index;
-                            let districtName = districts[index];
-                            showSchoolDetails(districtName);
+                            showSchoolDetails(districts[elements[0].index]);
                         }
                     },
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { stepSize: 1, precision: 0 },
-                            grid: { color: 'rgba(226, 232, 240, 0.6)' }
-                        },
-                        x: {
-                            grid: { display: false }
-                        }
+                        y: { beginAtZero: true, ticks: { stepSize: 1, precision: 0 } },
+                        x: { grid: { display: false } }
                     },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                            titleFont: { family: 'Kantumruy Pro', size: 14 },
-                            bodyFont: { family: 'Kantumruy Pro', size: 13 },
-                            padding: 12,
-                            cornerRadius: 8
-                        }
-                    }
+                    plugins: { legend: { display: false } }
                 }
             });
         }
@@ -533,8 +138,8 @@
             let container = document.getElementById('schoolDetailContainer');
             let titleEl = document.getElementById('selectedDistrictTitle');
             let listEl = document.getElementById('schoolList');
-
             let districtData = globalDistrictData[districtName];
+            
             if (!districtData || !districtData.schools) {
                 container.style.display = 'none';
                 return;
@@ -543,14 +148,12 @@
             titleEl.innerHTML = `<i class="fa-solid fa-school me-2"></i>សាលារៀនក្នុងស្រុក "${districtName}" (សរុបអ្នកបានរៀន៖ ${districtData.totalCert} នាក់)`;
             listEl.innerHTML = "";
 
-            let schools = districtData.schools;
-            for (let schoolName in schools) {
+            for (let schoolName in districtData.schools) {
                 let li = document.createElement('li');
                 li.className = "mb-1";
-                li.innerHTML = `<b>${schoolName}</b>: <span class="badge bg-success">${schools[schoolName]} នាក់</span>`;
+                li.innerHTML = `<b>${schoolName}</b>: <span class="badge bg-success">${districtData.schools[schoolName]} នាក់</span>`;
                 listEl.appendChild(li);
             }
-
             container.style.display = 'block';
         }
 
@@ -572,27 +175,28 @@
                 phone: this.phone.value
             };
 
-            google.script.run
-                .withSuccessHandler(function(res) {
-                    btn.disabled = false;
-                    btn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>រក្សាទុកទិន្នន័យ`;
-                    if (res && res.status === "error") {
-                        showToast(res.message, true);
-                        return;
-                    }
-                    showToast("បានរក្សាទុកទិន្នន័យដោយជោគជ័យ!");
-                    document.getElementById('dataForm').reset();
-                    updateRole();
-                    document.getElementById('schoolDetailContainer').style.display = 'none';
-                    loadData(); 
-                })
-                .withFailureHandler(function(err) {
-                    btn.disabled = false;
-                    btn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>រក្សាទុកទិន្នន័យ`;
-                    showToast("កំហុស Server៖ " + err.message, true);
-                })
-                .addData(formData);
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(res => {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>រក្សាទុកទិន្នន័យ`;
+                if (res && res.status === "error") {
+                    showToast(res.message, true);
+                    return;
+                }
+                showToast("បានរក្សាទុកទិន្នន័យដោយជោគជ័យ!");
+                document.getElementById('dataForm').reset();
+                updateRole();
+                document.getElementById('schoolDetailContainer').style.display = 'none';
+                loadData();
+            })
+            .catch(err => {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-floppy-disk me-2"></i>រក្សាទុកទិន្នន័យ`;
+                showToast("កំហុស Server៖ " + err.message, true);
+            });
         });
     </script>
-</body>
-</html>
